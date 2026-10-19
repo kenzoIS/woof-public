@@ -27,6 +27,7 @@ jobs:
             --exclude='.env.example' --exclude='**/.env.example' \
             --exclude='*.md' --exclude='**/*.md' \
             --exclude='*.log' --exclude='**/*.log' \
+            --exclude='*.err' --exclude='**/*.err' \
             --exclude='node_modules/' --exclude='**/node_modules/' \
             --exclude='.next/' --exclude='**/.next/' \
             --exclude='dist/' --exclude='**/dist/' \
@@ -40,7 +41,10 @@ jobs:
             --exclude='*.test.*' --exclude='**/*.test.*' \
             --exclude='test_*' --exclude='**/test_*' \
             --exclude='*-test.*' --exclude='**/*-test.*' \
-            --exclude='check-test-*' --exclude='**/check-test-*' \
+            --exclude='*test-db*' --exclude='**/*test-db*' \
+            --exclude='check-staging.js' --exclude='**/check-staging.js' \
+            --exclude='clear-db.js' --exclude='**/clear-db.js' \
+            --exclude='inspect-doc.js' --exclude='**/inspect-doc.js' \
             --exclude='test/' --exclude='**/test/' \
             --exclude='tests/' --exclude='**/tests/' \
             --exclude='__tests__/' --exclude='**/__tests__/' \
