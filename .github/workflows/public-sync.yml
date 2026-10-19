@@ -1,0 +1,108 @@
+name: One-time sanitized public sync
+
+on:
+  push:
+    paths:
+      - '.github/workflows/public-sync.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout public repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Clone source repository
+        run: git clone --depth 1 https://github.com/kenzoIS/WOOF_V1.git /tmp/source
+
+      - name: Copy runnable project and exclude private/development-only material
+        shell: bash
+        run: |
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.agents/' \
+            --exclude='.env' \
+            --exclude='.env.*' \
+            --exclude='**/.env' \
+            --exclude='**/.env.*' \
+            --exclude='.env.example' \
+            --exclude='**/.env.example' \
+            --exclude='*.md' \
+            --exclude='**/*.md' \
+            --exclude='*.log' \
+            --exclude='**/*.log' \
+            --exclude='node_modules/' \
+            --exclude='**/node_modules/' \
+            --exclude='.next/' \
+            --exclude='**/.next/' \
+            --exclude='dist/' \
+            --exclude='**/dist/' \
+            --exclude='build/' \
+            --exclude='**/build/' \
+            --exclude='coverage/' \
+            --exclude='**/coverage/' \
+            --exclude='__pycache__/' \
+            --exclude='**/__pycache__/' \
+            --exclude='.pytest_cache/' \
+            --exclude='**/.pytest_cache/' \
+            --exclude='.tmp/' \
+            --exclude='**/.tmp/' \
+            --exclude='*.tsbuildinfo' \
+            --exclude='**/*.tsbuildinfo' \
+            --exclude='*.spec.ts' \
+            --exclude='**/*.spec.ts' \
+            --exclude='*.spec.tsx' \
+            --exclude='**/*.spec.tsx' \
+            --exclude='*.test.ts' \
+            --exclude='**/*.test.ts' \
+            --exclude='*.test.tsx' \
+            --exclude='**/*.test.tsx' \
+            --exclude='*.test.js' \
+            --exclude='**/*.test.js' \
+            --exclude='*.test.jsx' \
+            --exclude='**/*.test.jsx' \
+            --exclude='test/' \
+            --exclude='**/test/' \
+            --exclude='tests/' \
+            --exclude='**/tests/' \
+            --exclude='__tests__/' \
+            --exclude='**/__tests__/' \
+            /tmp/source/ ./
+
+      - name: Verify no private environment files were copied
+        shell: bash
+        run: |
+          BAD_ENV=$(find . -type f \( -name '.env' -o -name '.env.*' \) ! -name '.env.example' ! -path './.git/*' -print)
+          if [ -n "$BAD_ENV" ]; then
+            echo 'Private environment file detected:'
+            echo "$BAD_ENV"
+            exit 1
+          fi
+
+      - name: Secret-pattern gate
+        shell: bash
+        run: |
+          PATTERN='gh[pousr]_[A-Za-z0-9_]{20,}|AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{35}|xox[baprs]-[A-Za-z0-9-]{10,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|mongodb(\+srv)?://[^[:space:]/:]+:[^[:space:]@]+@|postgres(ql)?://[^[:space:]/:]+:[^[:space:]@]+@'
+          if grep -RInIE "$PATTERN" . --exclude-dir=.git --exclude='*.lock'; then
+            echo 'Potential credential detected. Sync aborted before commit.'
+            exit 1
+          fi
+
+      - name: Commit sanitized runnable copy
+        shell: bash
+        run: |
+          git config user.name 'kenzoIS-public-sync'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No changes to commit.'
+            exit 0
+          fi
+          git commit -m 'chore: sync complete sanitized runnable source'
+          git push
