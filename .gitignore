@@ -1,0 +1,41 @@
+# Secrets / environments
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Node / Next / build
+node_modules/
+.next/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Logs / temp / generated
+*.log
+.tmp/
+tmp/
+.cache/
+
+# Data / exports / local databases
+*.csv
+*.xlsx
+*.xls
+*.sqlite
+*.sqlite3
+*.db
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
