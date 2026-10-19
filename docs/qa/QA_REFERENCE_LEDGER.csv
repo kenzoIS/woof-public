@@ -1,0 +1,10 @@
+﻿business_date,transaction_id,sector,channel,reference_sku,product,quantity,unit_price,recorded_discount,expected_net_revenue
+2026-09-30,PC001,Cafe,POS,LATTE-QA,QA Latte,3,100,0,300
+2026-09-30,PS001,Services,POS,GROOM-QA,QA Grooming,1,400,0,400
+2026-09-30,PR001,Retail,POS,FOOD-QA,QA Pet Food,1,200,0,200
+2026-10-01,C001,Cafe,POS,LATTE-QA,QA Latte,2,100,20,180
+2026-10-01,C001,Cafe,POS,MUFFIN-QA,QA Muffin,1,60,0,60
+2026-10-01,C002,Cafe,POS,COOKIE-QA,QA Pet Cookie,2,40,0,80
+2026-10-01,S001,Services,POS,GROOM-QA,QA Grooming,1,500,50,450
+2026-10-01,R001,Retail,POS,FOOD-QA,QA Pet Food,2,200,40,360
+2026-10-01,R002,Retail,POS,TREAT-QA,QA Treat,1,80,0,80

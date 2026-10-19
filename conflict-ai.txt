@@ -1,0 +1,468 @@
+﻿diff --cc frontend/src/app/pages/AISimulation.tsx
+index 1f682e3,35f5045..0000000
+--- a/frontend/src/app/pages/AISimulation.tsx
++++ b/frontend/src/app/pages/AISimulation.tsx
+@@@ -1,4 -1,5 +1,9 @@@
+++<<<<<<< HEAD
+ +import React, { useEffect, useMemo, useState } from "react";
+++=======
++ import { useEffect, useMemo, useState } from "react";
++ import { useRouter } from "next/router";
+++>>>>>>> origin/main
+  import { FlaskConical, Sparkles, TrendingUp, Target, Network, Map as MapIcon, Zap, HelpCircle, Info, Tag, ShoppingBag, Megaphone, Search, Users, CalendarDays, AlertTriangle, CheckCircle2 } from "lucide-react";
+  import { Button } from "../components/ui/button";
+  import { Badge } from "../components/ui/badge";
+@@@ -1473,15 -1422,10 +1496,22 @@@ export function AISimulation() 
+      High: { bg: "bg-red-50", text: "text-red-700", label: "High" },
+    };
+  
+++<<<<<<< HEAD
+ +  const getDemandLevelForSector = (sectorName: string, value: number): DemandLevel => {
+ +    const normalized = sectorName.toLowerCase();
+ +    if (normalized === 'cafe') return value >= 11 ? 'High' : value >= 6 ? 'Medium' : 'Low';
+ +    if (normalized === 'retail') return value >= 10 ? 'High' : value >= 5 ? 'Medium' : 'Low';
+ +    if (normalized === 'services') return value >= 11 ? 'High' : value >= 6 ? 'Medium' : 'Low';
+ +    if (normalized === 'grooming') return value >= 4 ? 'High' : value >= 2 ? 'Medium' : 'Low';
+ +    if (normalized === 'pet hotel') return value >= 3 ? 'High' : value >= 2 ? 'Medium' : 'Low';
+ +    if (normalized === 'bday pawty') return value >= 3 ? 'High' : value >= 2 ? 'Medium' : 'Low';
+ +    return value >= 42 ? 'High' : value >= 28 ? 'Medium' : 'Low';
+++=======
++   const getDemandLevel = (value: number): DemandLevel => {
++     if (value >= 26) return "High";
++     if (value >= 11) return "Medium";
++     return "Low";
+++>>>>>>> origin/main
+    };
+  
+    const getRequiredStaff = (sector: string, level: string) => {
+@@@ -1545,9 -1456,12 +1575,16 @@@
+        const dayForecasts = trafficColumns.map((column) => {
+          const trafficValue = valuesByKey.get(column.key);
+          const visits = Number(trafficValue?.visits || 0);
+++<<<<<<< HEAD
+ +        const level = getDemandLevelForSector(sector.name, visits);
+++=======
++         const sampleDays = Number(column.sampleDays || (trafficValue as any)?.sampleDays || 1);
++         const cumulativeVisits = Number((trafficValue as any)?.cumulativeVisits || Math.round(visits * sampleDays));
++         const displayVal = trafficDisplayMode === "weekday_average" ? cumulativeVisits : visits;
++         const level = getDemandLevel(displayVal);
+++>>>>>>> origin/main
+          const requiredStaff = getRequiredStaff(sector.name, level);
+ -        const scheduledStaff = sector.placeholderStaff;
+ +        const scheduledStaff = getScheduledStaff(sector.name, debouncedTrafficOptimizerTime, staffingDayFilter);
+          const staffDelta = requiredStaff - scheduledStaff;
+  
+          return {
+@@@ -1595,135 -1485,43 +1633,169 @@@
+          totalVisits: trafficRow?.totalVisits || 0,
+          peakVisits: trafficRow?.peakVisits || 0,
+          averageVisits: trafficRow?.averageVisits || 0,
+ +        subSectors,
+        };
+      });
+ -  }, [trafficOptimizerData, trafficColumns]);
+ +  }, [trafficOptimizerData, trafficColumns, debouncedTrafficOptimizerTime, staffingDayFilter]);
+  
+    const selectedTimeStaffPlan = sectorTrafficForecast.map((sector) => {
+++<<<<<<< HEAD
+ +    let targetForecast;
+ +    const scheduledStaff = getScheduledStaff(sector.name, debouncedTrafficOptimizerTime, staffingDayFilter);
+ +
+ +    if (staffingDayFilter === "All") {
+ +      const totalPredicted = sector.forecasts.reduce((sum, f) => sum + f.predicted, 0);
+ +      const avgPredicted = sector.forecasts.length > 0 ? Math.round(totalPredicted / sector.forecasts.length) : 0;
+ +      const level = getDemandLevelForSector(sector.name, avgPredicted);
+ +      const requiredStaff = getRequiredStaff(sector.name, level);
+ +      
+ +      targetForecast = {
+ +        day: "Average",
+ +        label: "Average across period",
+ +        key: "average",
+ +        date: "N/A",
+ +        predicted: avgPredicted,
+ +        actual: avgPredicted,
+ +        level,
+ +        requiredStaff,
+ +        scheduledStaff,
+ +        staffDelta: requiredStaff - scheduledStaff,
+ +      };
+ +    } else {
+ +      const dayAbbrev = staffingDayFilter.substring(0, 3);
+ +      const specificDayForecast = sector.forecasts.find(f => f.day.startsWith(dayAbbrev));
+ +      
+ +      if (specificDayForecast) {
+ +        targetForecast = specificDayForecast;
+ +      } else {
+ +        targetForecast = {
+ +          day: staffingDayFilter,
+ +          label: "No matching transactions",
+ +          key: "empty",
+ +          predicted: 0,
+ +          actual: 0,
+ +          level: "Low",
+ +          requiredStaff: 1,
+ +          scheduledStaff,
+ +          staffDelta: 1 - scheduledStaff,
+ +        };
+ +      }
+ +    }
+ +
+ +    const requiredStaff = erlangStaffing[sector.name] || targetForecast.requiredStaff;
+++=======
++     const peakForecast = sector.forecasts.reduce((peak, forecast) => {
++       const forecastVal = trafficDisplayMode === "weekday_average" ? forecast.cumulativeVisits : forecast.predicted;
++       const peakVal = trafficDisplayMode === "weekday_average" ? peak.cumulativeVisits : peak.predicted;
++       return forecastVal > peakVal ? forecast : peak;
++     }, sector.forecasts[0]);
++ 
++     const activeVal = trafficDisplayMode === "weekday_average" ? (peakForecast?.cumulativeVisits || 0) : (peakForecast?.predicted || 0);
++     const activeLevel = getDemandLevel(activeVal);
++     const requiredStaff = getRequiredStaff(sector.name, activeLevel);
++     const scheduledStaff = sector.placeholderStaff;
+++>>>>>>> origin/main
+  
+      return {
+        sector: sector.name,
+        color: sector.color,
+++<<<<<<< HEAD
+ +      ...targetForecast,
+ +      requiredStaff,
+ +      staffDelta: requiredStaff - targetForecast.scheduledStaff,
+ +    };
+ +  });
+ +
+ +  const liveCostAndCapacity = useMemo(() => {
+ +    let dayOfWeek: number | null = null;
+ +    if (staffingDayFilter !== "All") {
+ +      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+ +      const index = days.findIndex(d => d === staffingDayFilter);
+ +      if (index !== -1) dayOfWeek = index;
+ +    }
+ +
+ +    let totalHourlyCost = 0;
+ +    let servicesCapacityPerHour = 0;
+ +    let activeCommissionStaff = 0;
+ +
+ +    STAFF_SCHEDULE.forEach(staff => {
+ +      if (dayOfWeek !== null && staff.offDays.includes(dayOfWeek)) return;
+ +      
+ +      if (debouncedTrafficOptimizerTime >= staff.startHour && debouncedTrafficOptimizerTime < staff.endHour) {
+ +        totalHourlyCost += staff.hourlyRate;
+ +        servicesCapacityPerHour += staff.capacityPerHour;
+ +        if (staff.commission) activeCommissionStaff++;
+ +      }
+ +    });
+ +
+ +    let totalPredictedVisits = 0;
+ +    let servicesPredictedVisits = 0;
+ +
+ +    selectedTimeStaffPlan.forEach(plan => {
+ +      totalPredictedVisits += plan.predicted;
+ +      if (plan.sector === "Services") {
+ +        servicesPredictedVisits = plan.predicted;
+ +      }
+ +    });
+ +
+ +    const costPerVisit = totalPredictedVisits > 0 ? (totalHourlyCost / totalPredictedVisits) : totalHourlyCost;
+ +
+ +    let groomingStatus = "Stable";
+ +    let groomingMessage = "Grooming capacity meets predicted traffic demand.";
+ +    let groomingColor = "text-green-700 bg-green-50";
+ +    
+ +    if (servicesCapacityPerHour > 0) {
+ +      if (servicesPredictedVisits > servicesCapacityPerHour * 1.5) {
+ +        groomingStatus = "Severe Bottleneck";
+ +        groomingMessage = `Warning: Predicted ${servicesPredictedVisits} visits exceeds physical max capacity (~${servicesCapacityPerHour.toFixed(1)} slots/hr).`;
+ +        groomingColor = "text-red-700 bg-red-50";
+ +      } else if (servicesPredictedVisits > servicesCapacityPerHour) {
+ +        groomingStatus = "Warning";
+ +        groomingMessage = `Predicted ${servicesPredictedVisits} visits exceeds physical max capacity (~${servicesCapacityPerHour.toFixed(1)} slots/hr).`;
+ +        groomingColor = "text-yellow-700 bg-yellow-50";
+ +      } else if (servicesPredictedVisits < servicesCapacityPerHour * 0.5) {
+ +        groomingStatus = "Underutilized";
+ +        groomingMessage = `High idle time. Scheduled capacity (~${servicesCapacityPerHour.toFixed(1)} slots/hr) heavily outweighs demand.`;
+ +        groomingColor = "text-[#F53799] bg-[#FFF7FB]";
+ +      }
+ +    } else {
+ +       groomingStatus = "No Groomers on Duty";
+ +       groomingMessage = "No grooming staff are scheduled for this hour.";
+ +       groomingColor = "text-[#223047] bg-gray-100";
+ +    }
+ +
+ +    return {
+ +      totalHourlyCost,
+ +      servicesCapacityPerHour,
+ +      activeCommissionStaff,
+ +      totalPredictedVisits,
+ +      servicesPredictedVisits,
+ +      costPerVisit,
+ +      groomingStatus,
+ +      groomingMessage,
+ +      groomingColor
+ +    };
+ +  }, [debouncedTrafficOptimizerTime, staffingDayFilter, selectedTimeStaffPlan]);
+++=======
++       ...peakForecast,
++       level: activeLevel,
++       requiredStaff,
++       scheduledStaff,
++       staffDelta: requiredStaff - scheduledStaff,
++     };
++   });
++ 
++   const maxCumulativeVisits = useMemo(() => {
++     let maxVal = 1;
++     sectorTrafficForecast.forEach((sector) => {
++       sector.forecasts.forEach((f) => {
++         const val = trafficDisplayMode === "weekday_average" ? f.cumulativeVisits : f.predicted;
++         if (val > maxVal) maxVal = val;
++       });
++     });
++     return maxVal;
++   }, [sectorTrafficForecast, trafficDisplayMode]);
+++>>>>>>> origin/main
+  
+    const totalPredictedTraffic = Math.round(trafficOptimizerData?.totalVisits ||
+      sectorTrafficForecast.reduce((sum, sector) => sum + (sector.totalVisits || 0), 0));
+@@@ -1735,17 -1532,43 +1807,55 @@@
+    const formatTrafficVisitValue = (value: number) =>
+      Math.round(value).toString();
+  
+ -  // Traffic volume based on the Header Filter and selected time slot
+ +  // Traffic volume based on the Header Filter (overall, all hours)
+    const trafficPrediction = useMemo(() => {
+++<<<<<<< HEAD
+ +    if (!trafficOptimizerDataAllDay) return [];
+ +    return (trafficOptimizerDataAllDay.columns || []).map((column: any, columnIndex: number) => {
+ +      const sectorTotals = (trafficOptimizerDataAllDay.sectors || []).map((sector: any) => sector.values[columnIndex]);
+ +      return {
+ +        day: column.label,
+ +        visits: sectorTotals.reduce((sum: number, val: any) => sum + Number(val?.visits || 0), 0)
+ +      };
+ +    });
+ +  }, [trafficOptimizerDataAllDay]);
+++=======
++     return trafficColumns.map((column, columnIndex) => {
++       const sectorTotals = sectorTrafficForecast.map((sector) => sector.forecasts[columnIndex]);
++       const displayDay = column.dayLabel || column.label.replace(/\s+(avg|total)$/i, "");
++ 
++       const servicesVisits = trafficDisplayMode === "weekday_average"
++         ? (sectorTotals.find((_, idx) => sectorTrafficForecast[idx]?.name === "Services")?.cumulativeVisits || 0)
++         : Math.round(sectorTotals.find((_, idx) => sectorTrafficForecast[idx]?.name === "Services")?.predicted || 0);
++ 
++       const cafeVisits = trafficDisplayMode === "weekday_average"
++         ? (sectorTotals.find((_, idx) => sectorTrafficForecast[idx]?.name === "Cafe")?.cumulativeVisits || 0)
++         : Math.round(sectorTotals.find((_, idx) => sectorTrafficForecast[idx]?.name === "Cafe")?.predicted || 0);
++ 
++       const retailVisits = trafficDisplayMode === "weekday_average"
++         ? (sectorTotals.find((_, idx) => sectorTrafficForecast[idx]?.name === "Retail")?.cumulativeVisits || 0)
++         : Math.round(sectorTotals.find((_, idx) => sectorTrafficForecast[idx]?.name === "Retail")?.predicted || 0);
++ 
++       const totalVisits = servicesVisits + cafeVisits + retailVisits;
++ 
++       return {
++         day: displayDay,
++         visits: totalVisits,
++         services: servicesVisits,
++         cafe: cafeVisits,
++         retail: retailVisits,
++       };
++     });
++   }, [sectorTrafficForecast, trafficColumns, trafficDisplayMode]);
++ 
++   // Past Happy Hour Performance
++   const happyHourHistory = [
++     { date: "Apr 12", time: "3-4 PM", predicted: "+15%", actual: "+18%", result: "Γ£ô", lift: 18 },
++     { date: "Apr 10", time: "2-3 PM", predicted: "+12%", actual: "+14%", result: "Γ£ô", lift: 14 },
++     { date: "Apr 8", time: "4-5 PM", predicted: "+20%", actual: "+16%", result: "~", lift: 16 },
++     { date: "Apr 6", time: "3-4 PM", predicted: "+18%", actual: "+22%", result: "Γ£ô", lift: 22 },
++   ];
+++>>>>>>> origin/main
+  
+    const extractForecastTotals = (run?: ForecastRun | any | null) => {
+      const forecastRows = Array.isArray(run?.forecast) ? run.forecast.slice(0, 7) : [];
+@@@ -3370,8 -3192,8 +3483,13 @@@
+                  <div className="text-xl md:text-2xl font-bold text-[#F53799]">{highDemandSectors}</div>
+                </div>
+                <div className="p-3 md:p-4 bg-[#FFF2FA] rounded-lg md:rounded-xl text-center">
+++<<<<<<< HEAD
+ +                <div className="text-xs text-[#223047] opacity-60 mb-1">Active Staff</div>
+ +                <div className="text-xl md:text-2xl font-bold text-[#06B6D4]">{totalScheduledPlaceholderStaff}</div>
+++=======
++                 <div className="text-xs text-[#223047] opacity-60 mb-1">Baseline Roster Staff</div>
++                 <div className="text-xl md:text-2xl font-bold text-[#3AE4FA]">{totalScheduledPlaceholderStaff}</div>
+++>>>>>>> origin/main
+                </div>
+                <div className="p-3 md:p-4 bg-[#FFF2FA] rounded-lg md:rounded-xl text-center">
+                  <div className="text-xs text-[#223047] opacity-60 mb-1">Recommended Staff</div>
+@@@ -3381,15 -3203,20 +3499,30 @@@
+              
+              <div className="text-xs text-[#223047] opacity-70 bg-slate-100 p-2 rounded-lg mt-2 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-info"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+++<<<<<<< HEAD
+ +              Note: Active staff are client-provided static capacity baseline numbers, not a dynamic schedule pulled from a live roster system.
+++=======
++               Note: Baseline scheduled staff represents Happy Tails' target roster capacity per sector for operational coverage.
+++>>>>>>> origin/main
+              </div>
+  
+              <div className="rounded-xl md:rounded-2xl border border-[#FFD9EC] overflow-hidden mt-4">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 bg-[#FFF7FB] px-4 py-3">
+                  <div>
+++<<<<<<< HEAD
+ +                  <div className="text-sm font-bold text-[#223047]">Traffic Heatmap per Sector</div>
+ +                  <div className="text-xs text-[#223047] opacity-60 mt-1">
+ +                    {trafficVisitDefinition} Values are total visits for the selected range.
+++=======
++                   <div className="flex items-center gap-2">
++                     <span className="text-sm font-bold text-[#223047]">Traffic Heatmap</span>
++                     <Badge className="bg-[#FFF2FA] text-[#F53799] border border-[#FFD9EC] text-[11px] font-bold">
++                       {formatHour(trafficOptimizerTime[0])} Cumulative Volume & Capacity Load (%)
++                     </Badge>
++                   </div>
++                   <div className="text-xs text-[#223047] opacity-65 mt-1">
++                     Showing cumulative customer visits & capacity intensity load (%) specifically at <span className="font-semibold text-[#F53799]">{formatHour(trafficOptimizerTime[0])}</span> across {selectedHeaderRangeLabel}. Change Time Slider above for other hours.
+++>>>>>>> origin/main
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs text-[#223047]">
+@@@ -3425,59 -3255,33 +3561,89 @@@
+                        </tr>
+                      )}
+                      {!trafficOptimizerLoading && !trafficOptimizerError && sectorTrafficForecast.map((sector) => (
+++<<<<<<< HEAD
+ +                      <React.Fragment key={sector.name}>
+ +                        <tr className="border-t border-[#FFD9EC]">
+ +                          <td className="px-4 py-3 font-semibold text-[#223047]">
+ +                            <div className="flex items-center gap-2">
+ +                              <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: sector.color }} />
+ +                              {sector.name}
+ +                              {sector.subSectors && sector.subSectors.length > 0 && (
+ +                                <button 
+ +                                  onClick={() => toggleSector(sector.name)}
+ +                                  className="ml-auto flex items-center justify-center p-1 rounded hover:bg-gray-100 text-gray-500 transition-colors"
+ +                                  title={expandedSectors[sector.name] ? "Hide sub-sectors" : "Show sub-sectors"}
+ +                                >
+ +                                  {expandedSectors[sector.name] ? (
+ +                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-up"><path d="m18 15-6-6-6 6"/></svg>
+ +                                  ) : (
+ +                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>
+ +                                  )}
+ +                                </button>
+ +                              )}
+ +                            </div>
+ +                          </td>
+ +                          {sector.forecasts.map((forecast) => (
+ +                            <td key={`${sector.name}-${forecast.day}`} className="px-3 py-3">
+ +                              <div
+ +                                className={`mx-auto flex min-h-[54px] w-full max-w-[92px] items-center justify-center rounded-lg px-2 py-2 text-center ${demandStyles[forecast.level].bg}`}
+ +                                title={`${forecast.level} demand from ingested transactions`}
+ +                              >
+ +                                <div className={`text-sm font-bold ${demandStyles[forecast.level].text}`}>
+ +                                  {formatTrafficVisitValue(forecast.predicted)}
+ +                                  <span className="block text-[10px] font-semibold text-[#223047] opacity-65">visits</span>
+ +                                </div>
+ +                              </div>
+ +                            </td>
+ +                          ))}
+ +                        </tr>
+ +                        {expandedSectors[sector.name] && sector.subSectors?.map(sub => (
+ +                          <tr key={sub.name} className="bg-slate-50 border-t border-[#FFD9EC]">
+ +                            <td className="px-4 py-3 pl-8 text-sm font-medium text-[#223047] opacity-80">
+ +                              {sub.name}
+ +                            </td>
+ +                            {sub.forecasts.map((forecast) => (
+ +                              <td key={`${sub.name}-${forecast.day}`} className="px-3 py-3">
+ +                                <div className={`mx-auto flex min-h-[44px] w-full max-w-[80px] items-center justify-center rounded-lg px-2 py-1 text-center ${demandStyles[forecast.level].bg}`} title={`${forecast.level} demand`}>
+ +                                  <div className={`text-xs font-bold ${demandStyles[forecast.level].text}`}>
+ +                                    {formatTrafficVisitValue(forecast.predicted)}
+ +                                    <span className="block text-[9px] font-semibold text-[#223047] opacity-65">visits</span>
+ +                                  </div>
+ +                                </div>
+ +                              </td>
+ +                            ))}
+ +                          </tr>
+ +                        ))}
+ +                      </React.Fragment>
+++=======
++                       <tr key={sector.name} className="border-t border-[#FFD9EC]">
++                         <td className="px-4 py-3 font-semibold text-[#223047]">
++                           <span className="inline-flex items-center gap-2">
++                             <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: sector.color }} />
++                             {sector.name}
++                           </span>
++                         </td>
++                         {sector.forecasts.map((forecast) => {
++                           const displayVal = trafficDisplayMode === "weekday_average" ? forecast.cumulativeVisits : forecast.predicted;
++                           const loadPercent = Math.min(100, Math.max(10, Math.round((displayVal / Math.max(maxCumulativeVisits, 1)) * 100)));
++                           return (
++                             <td key={`${sector.name}-${forecast.day}`} className="px-3 py-3">
++                               <div
++                                 className={`mx-auto flex min-h-[58px] w-full max-w-[96px] flex-col items-center justify-center rounded-xl px-2 py-1.5 text-center transition-all ${demandStyles[forecast.level].bg}`}
++                                 title={`${forecast.level} demand (${displayVal} total visits in period, ${loadPercent}% capacity load)`}
++                               >
++                                 <div className={`text-sm font-extrabold ${demandStyles[forecast.level].text}`}>
++                                   {displayVal} <span className="text-[11px] font-semibold opacity-75">visits</span>
++                                 </div>
++                                 <div className="mt-0.5 text-[10px] font-bold text-[#223047] opacity-65">
++                                   {loadPercent}% Load
++                                 </div>
++                               </div>
++                             </td>
++                           );
++                         })}
++                       </tr>
+++>>>>>>> origin/main
+                      ))}
+                    </tbody>
+                  </table>
+@@@ -3489,29 -3293,13 +3655,36 @@@
+                  <div>
+                    <h3 className="text-base md:text-lg font-bold text-[#223047]">Staffing Recommendation</h3>
+                    <p className="text-xs md:text-sm text-[#223047] opacity-60 mt-1">
+++<<<<<<< HEAD
+ +                    Based on the busiest matching period in the selected Header Filter range, incorporating actual employee shift schedules.
+ +                  </p>
+ +                </div>
+ +                <div className="flex items-center gap-2">
+ +                  <select 
+ +                    value={staffingDayFilter}
+ +                    onChange={(e) => setStaffingDayFilter(e.target.value)}
+ +                    className="h-7 w-[110px] rounded-md border border-[#FFD9EC] bg-white px-2 text-xs text-[#223047] focus:outline-none focus:ring-1 focus:ring-[#F53799]"
+ +                  >
+ +                    <option value="All">All Days</option>
+ +                    <option value="Monday">Monday</option>
+ +                    <option value="Tuesday">Tuesday</option>
+ +                    <option value="Wednesday">Wednesday</option>
+ +                    <option value="Thursday">Thursday</option>
+ +                    <option value="Friday">Friday</option>
+ +                    <option value="Saturday">Saturday</option>
+ +                    <option value="Sunday">Sunday</option>
+ +                  </select>
+ +                  <Badge className="bg-[#E8F8F5] text-[#10B981] border border-[#A7F3D0]">Live Schedules</Badge>
+ +                </div>
+++=======
++                     Calculated against target roster capacity per sector for the busiest matching period in the selected Header Filter range
++                   </p>
++                 </div>
++                 <Badge className="bg-emerald-50 text-emerald-700 border border-emerald-200">Live Capacity Model</Badge>
+++>>>>>>> origin/main
+                </div>
+  
+ -              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+ +              <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                  {selectedTimeStaffPlan.map((sector) => {
+                    const needsMoreStaff = sector.staffDelta > 0;
+                    const canReduceStaff = sector.staffDelta < 0;
+@@@ -3548,7 -3336,7 +3721,11 @@@
+                            ? `Add ${sector.staffDelta} staff for this sector.`
+                            : canReduceStaff
+                              ? `Possible to reassign ${Math.abs(sector.staffDelta)} staff if service quality remains stable.`
+++<<<<<<< HEAD
+ +                            : "Current scheduled coverage is optimal."}
+++=======
++                             : "Optimal coverage: Scheduled staff matches required capacity."}
+++>>>>>>> origin/main
+                        </div>
+                      </div>
+                    );

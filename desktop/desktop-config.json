@@ -1,0 +1,5 @@
+{
+  "apiUrl": "http://localhost:3001/api",
+  "uploadApiUrl": "http://localhost:3001/api",
+  "realtimeUrl": "http://localhost:3001"
+}

@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/mongoose": "^11.0.4",
+    "@supabase/supabase-js": "^2.110.0",
+    "dotenv": "^17.4.2",
+    "mongodb": "^7.4.0",
+    "mongoose": "^9.7.3",
+    "supabase": "^2.109.0"
+  },
+  "scripts": {
+    "desktop:install": "npm --prefix desktop install",
+    "desktop:dev": "npm --prefix desktop run dev",
+    "desktop:build": "npm --prefix desktop run build:renderer",
+    "desktop:start": "npm --prefix desktop start",
+    "desktop:test": "npm --prefix desktop test",
+    "desktop:mac": "npm --prefix desktop run dist:mac",
+    "desktop:windows": "npm --prefix desktop run dist:win"
+  }
+}

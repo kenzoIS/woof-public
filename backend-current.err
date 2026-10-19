@@ -1,0 +1,136 @@
+D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\mongoose\dist\decorators\prop.decorator.js:21
+                throw new errors_1.CannotDetermineTypeError(target.constructor?.name, propertyKey);
+                ^
+
+CannotDetermineTypeError: Cannot determine a type for the "CampaignActivationAuditLog.previousStatus" field (union/intersection/ambiguous type was used). Make sure your property is decorated with a "@Prop({ type: TYPE_HERE })" decorator.
+    at <anonymous> (D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\mongoose\lib\decorators\prop.decorator.ts:33:15)
+    at DecorateProperty (D:\Capstone_v3\WOOF_V1\backend\node_modules\reflect-metadata\Reflect.js:561:33)
+    at Reflect.decorate (D:\Capstone_v3\WOOF_V1\backend\node_modules\reflect-metadata\Reflect.js:136:24)
+    at __decorate (D:\Capstone_v3\WOOF_V1\backend\dist\activation\schemas\campaign-activation-audit-log.schema.js:4:92)
+    at Object.<anonymous> (D:\Capstone_v3\WOOF_V1\backend\src\activation\schemas\campaign-activation-audit-log.schema.ts:16:3)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+
+Node.js v22.19.0
+node:child_process:990
+    throw err;
+    ^
+
+<ref *1> Error: spawnSync C:\WINDOWS\system32\cmd.exe EPERM
+    at Object.spawnSync (node:internal/child_process:1120:20)
+    at spawnSync (node:child_process:901:24)
+    at execSync (node:child_process:982:15)
+    at treeKillSync (D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\cli\lib\utils\tree-kill.js:7:38)
+    at D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\cli\actions\start.action.js:69:46
+    at Object.onWatchStatusChange (D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\cli\lib\compiler\watch-compiler.js:82:17)
+    at D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:133916:30
+    at emitFilesAndReportErrors (D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:133737:5)
+    at result.afterProgramCreate (D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:133912:5)
+    at synchronizeProgram (D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:134235:12) {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'spawnSync C:\\WINDOWS\\system32\\cmd.exe',
+  path: 'C:\\WINDOWS\\system32\\cmd.exe',
+  spawnargs: [ '/d', '/s', '/c', '"taskkill /pid 35784 /T /F"' ],
+  error: [Circular *1],
+  status: null,
+  signal: null,
+  output: null,
+  pid: 0,
+  stdout: undefined,
+  stderr: undefined
+}
+
+Node.js v22.19.0
+[31m[Nest] 14904  - [39m08/03/2026, 12:00:00 AM [31m  ERROR[39m [38;5;3m[WeatherService] [39m[31mFailed to fetch current weather: connect ECONNREFUSED 127.0.0.1:9[39m
+[31m[Nest] 14904  - [39m08/03/2026, 1:05:42 AM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mError: spawn EPERM
+[90m    at ChildProcess.spawn (node:internal/child_process:420:11)[39m
+[90m    at spawn (node:child_process:786:9)[39m
+    at <anonymous> [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3086:34[90m)[39m
+    at new Promise (<anonymous>)
+    at AnalyticsService.runPython [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3085:12[90m)[39m
+    at AnalyticsService.getLegacyRetailForecast [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3729:31[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-execution-context.js:46:28
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-proxy.js:9:17 {
+  errno: [33m-4048[39m,
+  code: [32m'EPERM'[39m,
+  syscall: [32m'spawn'[39m
+}
+[31m[Nest] 14904  - [39m08/03/2026, 1:05:43 AM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mError: spawn EPERM
+[90m    at ChildProcess.spawn (node:internal/child_process:420:11)[39m
+[90m    at spawn (node:child_process:786:9)[39m
+    at <anonymous> [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3086:34[90m)[39m
+    at new Promise (<anonymous>)
+    at AnalyticsService.runPython [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3085:12[90m)[39m
+    at AnalyticsService.getLegacyRetailForecast [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3729:31[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-execution-context.js:46:28
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-proxy.js:9:17 {
+  errno: [33m-4048[39m,
+  code: [32m'EPERM'[39m,
+  syscall: [32m'spawn'[39m
+}
+[31m[Nest] 14904  - [39m08/03/2026, 1:05:43 AM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mError: spawn EPERM
+[90m    at ChildProcess.spawn (node:internal/child_process:420:11)[39m
+[90m    at spawn (node:child_process:786:9)[39m
+    at <anonymous> [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3086:34[90m)[39m
+    at new Promise (<anonymous>)
+    at AnalyticsService.runPython [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3085:12[90m)[39m
+    at AnalyticsService.getNextQuietPeriod [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:1629:33[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-execution-context.js:46:28
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-proxy.js:9:17 {
+  errno: [33m-4048[39m,
+  code: [32m'EPERM'[39m,
+  syscall: [32m'spawn'[39m
+}
+[31m[Nest] 14904  - [39m08/03/2026, 1:05:58 AM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mError: spawn EPERM
+[90m    at ChildProcess.spawn (node:internal/child_process:420:11)[39m
+[90m    at spawn (node:child_process:786:9)[39m
+    at <anonymous> [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3086:34[90m)[39m
+    at new Promise (<anonymous>)
+    at AnalyticsService.runPython [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3085:12[90m)[39m
+    at AnalyticsService.getLegacyRetailForecast [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3729:31[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-execution-context.js:46:28
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-proxy.js:9:17 {
+  errno: [33m-4048[39m,
+  code: [32m'EPERM'[39m,
+  syscall: [32m'spawn'[39m
+}
+[31m[Nest] 14904  - [39m08/03/2026, 1:06:11 AM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mError: spawn EPERM
+[90m    at ChildProcess.spawn (node:internal/child_process:420:11)[39m
+[90m    at spawn (node:child_process:786:9)[39m
+    at <anonymous> [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3086:34[90m)[39m
+    at new Promise (<anonymous>)
+    at AnalyticsService.runPython [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3085:12[90m)[39m
+    at AnalyticsService.getLegacyRetailForecast [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3729:31[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-execution-context.js:46:28
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-proxy.js:9:17 {
+  errno: [33m-4048[39m,
+  code: [32m'EPERM'[39m,
+  syscall: [32m'spawn'[39m
+}
+[31m[Nest] 14904  - [39m08/03/2026, 1:06:12 AM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mError: spawn EPERM
+[90m    at ChildProcess.spawn (node:internal/child_process:420:11)[39m
+[90m    at spawn (node:child_process:786:9)[39m
+    at <anonymous> [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3086:34[90m)[39m
+    at new Promise (<anonymous>)
+    at AnalyticsService.runPython [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:3085:12[90m)[39m
+    at AnalyticsService.getNextQuietPeriod [90m(D:\Capstone_v3\WOOF_V1\backend\[39msrc\analytics\analytics.service.ts:1629:33[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-execution-context.js:46:28
+    at async [90mD:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4m@nestjs[24m\core\router\router-proxy.js:9:17 {
+  errno: [33m-4048[39m,
+  code: [32m'EPERM'[39m,
+  syscall: [32m'spawn'[39m
+}
+Cross-sell computation failed: spawn EPERM
+Cross-sell computation failed: spawn EPERM
+Cross-sell computation failed: spawn EPERM
+Cross-sell computation failed: spawn EPERM

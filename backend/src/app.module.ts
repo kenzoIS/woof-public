@@ -15,6 +15,7 @@ import { AwsModule } from './aws/aws.module';
 import { ChatbotModule } from './chatbot/chatbot.module';
 import { RealtimeModule } from './realtime/realtime.module';
 import { SettingsModule } from './settings/settings.module';
+
 import { ScheduleModule } from '@nestjs/schedule';
 import { ContextModule } from './context/context.module';
 import { LlmModule } from './llm/llm.module';
@@ -26,22 +27,47 @@ import { AlertsModule } from './alerts/alerts.module';
 @Module({
   imports: [
     ScheduleModule.forRoot(),
-    ThrottlerModule.forRoot([{ ttl: 60000, limit: 200 }]),
+
+    // ── Security: Global Rate Limiting ──────────────────────────────
+    // Default: 200 requests per 60 seconds per IP.
+    // Individual routes can override with @Throttle() decorator.
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60000,
+        limit: 200,
+      },
+    ]),
+
     ConfigModule.forRoot({
       isGlobal: true,
       validate: (config: Record<string, unknown>) => {
-        if (typeof config.MONGODB_URI !== 'string' || !config.MONGODB_URI.trim()) {
+        if (
+          typeof config.MONGODB_URI !== 'string' ||
+          !config.MONGODB_URI.trim()
+        ) {
           throw new Error('MONGODB_URI must be configured in backend/.env');
         }
+        if (/[<>]/.test(config.MONGODB_URI)) {
+          throw new Error(
+            'MONGODB_URI still contains a placeholder. Replace <db_password> in backend/.env with the MongoDB Atlas database user password.',
+          );
+        }
+
         if (!config.SUPABASE_URL || typeof config.SUPABASE_URL !== 'string') {
           throw new Error('SUPABASE_URL must be configured in backend/.env');
         }
-        if (!config.SUPABASE_SERVICE_ROLE_KEY || typeof config.SUPABASE_SERVICE_ROLE_KEY !== 'string') {
-          throw new Error('SUPABASE_SERVICE_ROLE_KEY must be configured in backend/.env');
+        if (
+          !config.SUPABASE_SERVICE_ROLE_KEY ||
+          typeof config.SUPABASE_SERVICE_ROLE_KEY !== 'string'
+        ) {
+          throw new Error(
+            'SUPABASE_SERVICE_ROLE_KEY must be configured in backend/.env',
+          );
         }
         if (!config.SUPABASE_ANON_KEY || typeof config.SUPABASE_ANON_KEY !== 'string') {
           throw new Error('SUPABASE_ANON_KEY must be configured in backend/.env');
         }
+
         return config;
       },
     }),
@@ -73,11 +99,21 @@ import { AlertsModule } from './alerts/alerts.module';
     InventoryModule,
   ],
   providers: [
-    { provide: APP_GUARD, useClass: ThrottlerGuard },
-    { provide: APP_GUARD, useClass: SupabaseAuthGuard },
+    // ── Security: Apply ThrottlerGuard globally ─────────────────────
+    {
+      provide: APP_GUARD,
+      useClass: ThrottlerGuard,
+    },
+    {
+      provide: APP_GUARD,
+      useClass: SupabaseAuthGuard,
+    },
   ],
 })
 export class AppModule implements NestModule {
+  // ── Security: Geo-Blocking Middleware ─────────────────────────────
+  // Applies to all routes. Reads the cf-ipcountry header from Cloudflare
+  // and blocks traffic from outside the configured countries (default: PH).
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(GeoBlockMiddleware).forRoutes('*');
   }

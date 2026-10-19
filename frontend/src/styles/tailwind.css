@@ -1,0 +1,70 @@
+@import 'tailwindcss' source(none);
+@source '../**/*.{js,ts,jsx,tsx}';
+
+@import 'tw-animate-css';
+
+@keyframes woof-suggestion-carousel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+.animate-woof-suggestion-carousel {
+  animation: woof-suggestion-carousel 32s linear infinite;
+}
+
+.woof-suggestions-carousel.is-paused .animate-woof-suggestion-carousel {
+  animation-play-state: paused;
+}
+
+/* Recharts Brush / Range Slider Customization */
+.recharts-brush {
+  font-family: inherit;
+  overflow: visible !important;
+}
+
+.recharts-brush > rect:first-child {
+  fill: #FFF7FB !important;
+  stroke: #F53799 !important;
+  stroke-opacity: 0.3 !important;
+  stroke-width: 1px !important;
+  rx: 4px;
+}
+
+.recharts-brush-slide {
+  fill: #F53799 !important;
+  fill-opacity: 0.12 !important;
+  stroke: #F53799 !important;
+  stroke-width: 1.5px !important;
+}
+
+.recharts-brush-traveller {
+  cursor: ew-resize !important;
+}
+
+.recharts-brush-traveller rect {
+  fill: #F53799 !important;
+  stroke: #FFFFFF !important;
+  stroke-width: 1.5px !important;
+  rx: 3px !important;
+}
+
+.recharts-brush-traveller path {
+  stroke: #FFFFFF !important;
+  stroke-width: 1.5px !important;
+}
+
+.recharts-brush-texts {
+  overflow: visible !important;
+  pointer-events: none;
+}
+
+.recharts-brush-texts text {
+  fill: #223047 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+}

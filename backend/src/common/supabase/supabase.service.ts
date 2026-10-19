@@ -9,35 +9,40 @@ export class SupabaseService {
 
   constructor(private configService: ConfigService) {
     const supabaseUrl = this.configService.get<string>('SUPABASE_URL');
-    const supabaseKey = this.configService.get<string>('SUPABASE_SERVICE_ROLE_KEY');
+    const supabaseKey = this.configService.get<string>(
+      'SUPABASE_SERVICE_ROLE_KEY',
+    );
 
     if (!supabaseUrl || !supabaseKey) {
-      this.logger.warn('Supabase server configuration is incomplete.');
+      this.logger.warn(
+        'Supabase URL or Key not provided in configuration. Database operations targeting Supabase may fail.',
+      );
     } else {
-      this.supabaseClient = createClient(supabaseUrl, supabaseKey, {
-        auth: { persistSession: false, autoRefreshToken: false },
-      });
+      this.supabaseClient = createClient(supabaseUrl, supabaseKey);
+      this.logger.log('Supabase client initialized successfully.');
     }
   }
 
   public get client(): SupabaseClient {
-    if (!this.supabaseClient) throw new Error('Supabase client is not initialized.');
+    if (!this.supabaseClient) {
+      throw new Error('Supabase client is not initialized.');
+    }
     return this.supabaseClient;
   }
 
   public createAuthClient(): SupabaseClient {
-    const url = this.configService.getOrThrow<string>('SUPABASE_URL');
-    const anonKey = this.configService.getOrThrow<string>('SUPABASE_ANON_KEY');
-    return createClient(url, anonKey, {
-      auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
+    const supabaseUrl = this.configService.get<string>('SUPABASE_URL');
+    const supabaseKey = this.configService.get<string>('SUPABASE_ANON_KEY');
+    return createClient(supabaseUrl!, supabaseKey!, {
+      auth: { persistSession: false, autoRefreshToken: false },
     });
   }
 
   /** Creates a per-request client. The bearer token is never logged or persisted. */
   public createSessionClient(accessToken: string): SupabaseClient {
-    const url = this.configService.getOrThrow<string>('SUPABASE_URL');
-    const anonKey = this.configService.getOrThrow<string>('SUPABASE_ANON_KEY');
-    return createClient(url, anonKey, {
+    const supabaseUrl = this.configService.getOrThrow<string>('SUPABASE_URL');
+    const supabaseKey = this.configService.getOrThrow<string>('SUPABASE_ANON_KEY');
+    return createClient(supabaseUrl, supabaseKey, {
       global: { headers: { Authorization: `Bearer ${accessToken}` } },
       auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false },
     });

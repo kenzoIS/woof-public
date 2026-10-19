@@ -1,0 +1,21 @@
+{
+  "name": "woof-desktop",
+  "version": "1.0.1",
+  "private": true,
+  "description": "WOOF Pet Cafe analytics desktop application",
+  "author": "WOOF Team",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "node scripts/start.cjs",
+    "dev": "node scripts/dev.cjs",
+    "build:renderer": "node scripts/build-renderer.cjs",
+    "test": "node --test lib/assets.test.cjs lib/config.test.cjs lib/connection.test.cjs lib/backend-proxy.test.cjs",
+    "pack": "npm run build:renderer && electron-builder --dir --config electron-builder.cjs",
+    "dist:mac": "npm run build:renderer && electron-builder --mac --config electron-builder.cjs",
+    "dist:win": "npm run build:renderer && electron-builder --win --config electron-builder.cjs"
+  },
+  "devDependencies": {
+    "electron": "44.7.2",
+    "electron-builder": "26.15.3"
+  }
+}

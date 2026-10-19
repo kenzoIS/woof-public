@@ -1,0 +1,866 @@
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:49 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670090[39m, i: [33m10[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'AOtfl+x6h2HlYWoILiSjYv7DypI='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670090[39m, i: [33m10[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670090[39m, i: [33m10[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'AOtfl+x6h2HlYWoILiSjYv7DypI='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670090[39m, i: [33m10[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:51 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670092[39m, i: [33m3[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3D3E8EdpNdH2/Jv/qUDiKcJn3tY='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670092[39m, i: [33m3[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670092[39m, i: [33m3[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3D3E8EdpNdH2/Jv/qUDiKcJn3tY='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670092[39m, i: [33m3[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:53 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670094[39m, i: [33m2[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'YWtIBqV0rRWhWobiUKVF5XwUX/o='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670094[39m, i: [33m2[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670094[39m, i: [33m2[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'YWtIBqV0rRWhWobiUKVF5XwUX/o='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670094[39m, i: [33m2[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670096[39m, i: [33m6[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'fjHyVCPxFKKXI551VgZimyO+F6w='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670096[39m, i: [33m6[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670096[39m, i: [33m6[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'fjHyVCPxFKKXI551VgZimyO+F6w='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670096[39m, i: [33m6[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m2[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:54:56 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'3XP4SEFGsq1Y9IsnbRHoOnsYrfU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670097[39m, i: [33m3[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:55:23 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670124[39m, i: [33m2[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'yERPkyhmseX76Tmk/u1mR/LJbXM='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670124[39m, i: [33m2[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670124[39m, i: [33m2[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'yERPkyhmseX76Tmk/u1mR/LJbXM='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670124[39m, i: [33m2[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:55:24 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670125[39m, i: [33m8[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'TZmNuGqrr/h61gayABhZpC6R5pE='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670125[39m, i: [33m8[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670125[39m, i: [33m8[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'TZmNuGqrr/h61gayABhZpC6R5pE='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670125[39m, i: [33m8[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:55:25 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670126[39m, i: [33m1[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'CZBgp2MlAqmYAwdjOlgugDbvxk8='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670126[39m, i: [33m1[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670126[39m, i: [33m1[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'CZBgp2MlAqmYAwdjOlgugDbvxk8='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670126[39m, i: [33m1[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:55:30 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670131[39m, i: [33m9[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'SHaB7NTcWmYr1oTTo4J2QSX4yFc='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670131[39m, i: [33m9[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670131[39m, i: [33m9[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'SHaB7NTcWmYr1oTTo4J2QSX4yFc='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670131[39m, i: [33m9[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:56:26 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670187[39m, i: [33m7[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'zTdJFa5///KAP3HPGzU8e+8VklE='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670187[39m, i: [33m7[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670187[39m, i: [33m7[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'zTdJFa5///KAP3HPGzU8e+8VklE='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670187[39m, i: [33m7[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:56:27 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670188[39m, i: [33m6[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'+lxQ/TgqfU24f5sQB8yqSd7UadA='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670188[39m, i: [33m6[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670188[39m, i: [33m6[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'+lxQ/TgqfU24f5sQB8yqSd7UadA='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670188[39m, i: [33m6[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:56:45 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670206[39m, i: [33m6[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'OgNObrrwdZn87c8b71aa9V5C/w8='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670206[39m, i: [33m6[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670206[39m, i: [33m6[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'OgNObrrwdZn87c8b71aa9V5C/w8='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670206[39m, i: [33m6[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:57:08 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670229[39m, i: [33m4[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'kTPaH+UjG6+Lacd8B09k2rTthk8='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670229[39m, i: [33m4[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670229[39m, i: [33m4[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'kTPaH+UjG6+Lacd8B09k2rTthk8='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670229[39m, i: [33m4[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:57:36 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670257[39m, i: [33m2[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'82mBkKaxh3BTB3GklhnNNOjFsss='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670257[39m, i: [33m2[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670257[39m, i: [33m2[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'82mBkKaxh3BTB3GklhnNNOjFsss='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670257[39m, i: [33m2[39m })
+}
+[31m[Nest] 1316  - [39m07/10/2026, 3:57:37 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670258[39m, i: [33m6[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'e4SZ2m1jR3IM1RvdQCM2zlTYzIU='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670258[39m, i: [33m6[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670258[39m, i: [33m6[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'e4SZ2m1jR3IM1RvdQCM2zlTYzIU='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670258[39m, i: [33m6[39m })
+}
+node:child_process:990
+    throw err;
+    ^
+
+<ref *1> Error: spawnSync C:\WINDOWS\system32\cmd.exe EPERM
+    at Object.spawnSync (node:internal/child_process:1120:20)
+    at spawnSync (node:child_process:901:24)
+    at execSync (node:child_process:982:15)
+    at treeKillSync (D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\cli\lib\utils\tree-kill.js:7:38)
+    at D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\cli\actions\start.action.js:69:46
+    at Object.onWatchStatusChange (D:\Capstone_v3\WOOF_V1\backend\node_modules\@nestjs\cli\lib\compiler\watch-compiler.js:82:17)
+    at D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:133916:30
+    at emitFilesAndReportErrors (D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:133737:5)
+    at result.afterProgramCreate (D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:133912:5)
+    at synchronizeProgram (D:\Capstone_v3\WOOF_V1\backend\node_modules\typescript\lib\typescript.js:134235:12) {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'spawnSync C:\\WINDOWS\\system32\\cmd.exe',
+  path: 'C:\\WINDOWS\\system32\\cmd.exe',
+  spawnargs: [ '/d', '/s', '/c', '"taskkill /pid 32288 /T /F"' ],
+  error: [Circular *1],
+  status: null,
+  signal: null,
+  output: null,
+  pid: 0,
+  stdout: undefined,
+  stderr: undefined
+}
+
+Node.js v22.19.0
+[31m[Nest] 1316  - [39m07/10/2026, 3:58:32 PM [31m  ERROR[39m [38;5;3m[ExceptionsHandler] [39mMongoServerError: PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.
+    at Connection.sendCommand [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:561:17[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)[39m
+    at async Connection.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cmap\connection.ts:634:22[90m)[39m
+    at async Server.command [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\sdam\server.ts:351:21[90m)[39m
+    at async executeOperationWithRetries [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:266:24[90m)[39m
+    at async executeOperation [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\operations\execute_operation.ts:127:12[90m)[39m
+    at async AggregationCursor._initialize [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\aggregation_cursor.ts:92:22[90m)[39m
+    at async AggregationCursor.cursorInit [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:917:21[90m)[39m
+    at async AggregationCursor.fetchBatch [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:955:7[90m)[39m
+    at async AggregationCursor.next [90m(D:\Capstone_v3\WOOF_V1\backend\[39mnode_modules\[4mmongodb[24m\src\cursor\abstract_cursor.ts:573:9[90m)[39m {
+  errorLabelSet: Set(0) {},
+  errorResponse: {
+    ok: [33m0[39m,
+    errmsg: [32m'PlanExecutor error during aggregation :: caused by :: Sort exceeded memory limit of 33554432 bytes, but did not opt in to external sorting.'[39m,
+    code: [33m292[39m,
+    codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+    [32m'$clusterTime'[39m: {
+      clusterTime: new Timestamp({ t: [33m1783670313[39m, i: [33m1[39m }),
+      signature: {
+        hash: Binary.createFromBase64([32m'abC+cqcnZ39OGVTiwD2A0vuPBIs='[39m, [33m0[39m),
+        keyId: new Long([32m'7619919659877269508'[39m)
+      }
+    },
+    operationTime: new Timestamp({ t: [33m1783670313[39m, i: [33m1[39m })
+  },
+  ok: [33m0[39m,
+  code: [33m292[39m,
+  codeName: [32m'QueryExceededMemoryLimitNoDiskUseAllowed'[39m,
+  [32m'$clusterTime'[39m: {
+    clusterTime: new Timestamp({ t: [33m1783670313[39m, i: [33m1[39m }),
+    signature: {
+      hash: Binary.createFromBase64([32m'abC+cqcnZ39OGVTiwD2A0vuPBIs='[39m, [33m0[39m),
+      keyId: new Long([32m'7619919659877269508'[39m)
+    }
+  },
+  operationTime: new Timestamp({ t: [33m1783670313[39m, i: [33m1[39m })
+}

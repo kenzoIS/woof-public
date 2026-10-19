@@ -1,0 +1,32 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+@keyframes woof-mascot-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-1.25deg); }
+}
+
+.woof-mascot-motion {
+  transform-origin: 50% 85%;
+  animation: woof-mascot-float 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .woof-mascot-motion {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+/* Desktop composition: the transparent storefront PNG is the back-most visual
+   layer, with the foreground wave, mascot, paws, and card rendered above it. */
+@media (min-width: 1280px) {
+  .woof-login-composition {
+    background-image: var(--woof-login-storefront);
+    background-position: clamp(-180px, -7vw, -100px) top;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
